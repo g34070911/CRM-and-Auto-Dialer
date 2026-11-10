@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Ledger CRM Google Voice Dialer",
+  "version": "1.0.0",
+  "description": "Safe CRM queue and Google Voice calling controls.",
+  "permissions": ["storage", "sidePanel", "tabs"],
+  "host_permissions": ["http://localhost:4000/*", "https://crm.example.com/*", "https://voice.google.com/*"],
+  "background": { "service_worker": "src/service-worker.js", "type": "module" },
+  "action": { "default_title": "Ledger CRM Dialer" },
+  "side_panel": { "default_path": "src/sidepanel/sidepanel.html" },
+  "content_scripts": [{ "matches": ["https://voice.google.com/*"], "js": ["src/content-script.js"], "run_at": "document_idle" }],
+  "options_page": "src/options/options.html"
+}

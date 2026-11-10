@@ -1,0 +1,3 @@
+const DEFAULT_API = 'http://localhost:4000/api';
+export async function getConfig() { return chrome.storage.local.get(['apiBase', 'token', 'profileId', 'phoneFieldKey', 'pauseMin', 'pauseMax']); }
+export async function apiRequest(path, options = {}) { const config = await getConfig(); if (!config.token) throw new Error('Pair the extension with your CRM first.'); const response = await fetch(`${config.apiBase || DEFAULT_API}${path}`, { ...options, headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${config.token}`, ...(options.headers || {}) } }); const body = await response.json().catch(() => ({})); if (!response.ok) throw new Error(body.error || `CRM request failed (${response.status})`); return body; }

@@ -1,0 +1,8 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Ledger CRM Dialer</title><link rel="stylesheet" href="sidepanel.css"></head>
+<body><main>
+<h1>Ledger CRM Dialer</h1><div id="status">Not configured</div><div id="queue"></div>
+<div class="controls"><button id="load"><span>Load Queue</span><span class="spinner" aria-hidden="true"></span></button><button id="bulk">Bulk Dial</button><button id="next">Call Next</button><button id="pause">Pause</button><button id="hangup">Hang Up</button><button id="stop">Stop</button><button id="covered" hidden>Mark Dialed Covered</button></div>
+<p class="hint">Press <kbd>B</kbd> on the Google Voice tab to hang up and continue.</p>
+<section id="disposition" hidden><h2>Disposition</h2><textarea id="notes" placeholder="Notes"></textarea><div id="outcomes"></div></section>
+<a href="../options/options.html" target="_blank">Extension settings</a></main><script type="module" src="sidepanel.js"></script></body></html>
